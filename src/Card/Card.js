@@ -1,9 +1,12 @@
 import React from "react";
 import './Card.css';
 
-function Card() {
+function Card({ title, byline}) {
     return(
-        <h3>Hallo</h3>
+        <>
+            <h3>{title}</h3>
+            <p>{byline}</p>
+        </>
     )   
 }
 
