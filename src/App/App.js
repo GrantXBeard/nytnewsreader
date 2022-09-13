@@ -3,6 +3,7 @@ import './App.css';
 import Header from '../Header/Header'
 import Display from '../Display/Display';
 import sampleData from '../sample'
+import getArticles from '../apiCall';
 
 function App() {
   const [articleData, setArticleData] = useState(null);
