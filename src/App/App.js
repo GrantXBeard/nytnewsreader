@@ -1,24 +1,45 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, Component} from 'react'
 import './App.css';
 import Header from '../Header/Header'
 import Display from '../Display/Display';
 import sampleData from '../sample'
 import getArticles from '../apiCall';
 
-function App() {
-  const [articleData, setArticleData] = useState(null);
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      articles: [],
+      error: '',
+      isLoading: false,
+      type: 'home'
+    }
+  }
 
-useEffect(() => {
- setArticleData(sampleData.results)
-})
-console.log(articleData)
-  return (
-    <main>
-      <Header />
-      {articleData ? <Display articleData={articleData} /> : <h2>Error</h2>}
-    </main>
-    
-  );
+  componentDidMount = () => {
+    this.setState({isLoading: true})
+    getArticles(this.state.type)
+    .then((data) => {
+      this.setState({
+        articles: data.results,
+        isLoading: false
+      })
+    })
+    .catch((err) => {
+      this.setState({error: err.message})
+      console.log(err)
+    });
+  }
+  
+  render() {
+    return (
+          <main>
+            <Header />
+            {this.state.articles ? <Display articleData={this.state.articles} /> : <h2>{this.state.error}</h2>}
+          </main>
+          
+        );
+  }
 }
 
 export default App;
