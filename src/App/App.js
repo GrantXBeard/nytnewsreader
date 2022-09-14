@@ -2,7 +2,6 @@ import React, {useState, useEffect, Component} from 'react'
 import './App.css';
 import Header from '../Header/Header'
 import Display from '../Display/Display';
-import sampleData from '../sample'
 import getArticles from '../apiCall';
 
 class App extends Component {
@@ -16,21 +15,6 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
-    this.setState({isLoading: true})
-    getArticles(this.state.type)
-    .then((data) => {
-      this.setState({
-        articles: data.results,
-        isLoading: false
-      })
-    })
-    .catch((err) => {
-      this.setState({error: err.message})
-      console.log(err)
-    });
-  }
-  
   render() {
     return (
           <main>
