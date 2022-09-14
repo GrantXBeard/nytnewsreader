@@ -10,7 +10,7 @@ class Display extends Component {
             articles: [],
             error: '',
             isLoading: false,
-            type: 'home'
+            type: type
           }
     }
     
@@ -49,7 +49,7 @@ class Display extends Component {
     render() {
         return (
             <>
-            {this.state.articles && this.state.articles}
+            {this.state.articles.length && this.state.articles}
             </>
         )
     }
