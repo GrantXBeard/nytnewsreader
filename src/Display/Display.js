@@ -1,58 +1,42 @@
-import React, { Component } from "react";
+import React from "react";
 import Card from "../Card/Card";
 import './Display.css'
-import getArticles from "../apiCall";
 
-class Display extends Component {
-    constructor({ type }) {
-        super()
-        this.state = {
-            articles: [],
-            error: '',
-            isLoading: false,
-            type: type
-          }
-    }
+
+function Display ({ type , articles }) {
+
     
-    componentDidMount = () => {
-        this.getData()
-    }
+      const buildDisplayArray = (arr) => {
+          return arr.map(art => {
+              return(
+                  <Card
+                  title={art.title}
+                  byline={art.byline}
+                  key={(arr.length ++ )}
+                  section={art.section}
+                  />
+              )
+          })
+      }
 
-    getData = () => {
-        this.setState({isLoading: true})
-        getArticles(this.state.type)
-        .then((data) => {
-            let articleArr = this.buildDisplayArray(data.results)
-            this.setState({
-                articles: articleArr,
-                isLoading: false
-            })
-        })
-        .catch((err) => {
-            this.setState({error: err.message})
-            console.log(err)
-        });
-    }
+      const checkType = (arr) => {
+        if (type === 'home') {
+         return buildDisplayArray(arr)
+        } else {
+         let choice =  arr.filter(art => art.section === type)
+         return buildDisplayArray(choice)
+     }
+     }
+     const displayArticles = checkType(articles)
+  
 
-    buildDisplayArray = (arr) => {
-        return arr.map(art => {
-            return(
-                <Card
-                title={art.title}
-                byline={art.byline}
-                key={art.updated_date} 
-                />
-            )
-        })
-    }
-
-    render() {
+    
         return (
             <>
-            {this.state.articles.length && this.state.articles}
+            {displayArticles.length ? displayArticles : <p>Sorry, no top stories in this section.</p>}
             </>
         )
-    }
+    
 }
 
 export default Display;
