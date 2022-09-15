@@ -1,12 +1,15 @@
 import React from "react";
 import './Header.css'
 
-function Header() {
+function Header({ getType }) {
     return(
         <>
             <h1>NYT News Reader</h1>
             <form>
-                <select>
+                <select onChangeCapture={event => {
+                    event.preventDefault()
+                    getType(event.target.value)}
+                }>
                     <option defaultValue='home'>Home</option>
                     <option value='arts'>Arts</option>
                     <option value='automobiles'>Automobiles</option>
@@ -24,7 +27,7 @@ function Header() {
                     <option value='politics'>Politics</option>
                     <option value='realestate'>Real Estate</option>
                     <option value='science'>Science</option>
-                    <option value='sports'>Sporrts</option>
+                    <option value='sports'>Sports</option>
                     <option value='sundayreview'>Sunday Review</option>
                     <option value='technology'>Technology</option>
                     <option value='theater'>Theatre</option>
@@ -34,6 +37,8 @@ function Header() {
                     <option value='us'>US</option>
                     <option value='world'>Wolrd</option>
                 </select>
+                <button>Go!</button>
+                
             </form>
         </>
     )
