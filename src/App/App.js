@@ -1,29 +1,50 @@
-import React, {useState, useEffect, Component} from 'react'
+import React, {Component} from 'react'
 import './App.css';
 import Header from '../Header/Header'
 import Display from '../Display/Display';
-import { Route, Link } from 'react-router-dom'
+import getArticles from "../apiCall";
 
 
 class App extends Component {
   constructor() {
     super()
-    this.state = {
-      type: 'home'
-    }
+        this.state = {
+            articles: [],
+            error: '',
+            isLoading: false,
+            type: 'home'
+          }
   }
 
+  componentDidMount = () => {
+    this.getData(this.state.type)
+  }
+
+  getData = () => {
+    this.setState({isLoading: true})
+    getArticles(this.state.type)
+    .then((data) => {
+        this.setState({
+            articles: data.results,
+            isLoading: false
+        })
+    })
+    .catch((err) => {
+        this.setState({error: err.message})
+        console.log(err)
+    });
+  }
+
+
   getType = (type) => {
-    // console.log(type)
     this.setState({type: type})
-    console.log(this.state.type)
   }
 
   render() {
     return (
           <main>
             <Header getType={this.getType}/>
-            <Display type={this.state.type} />
+            {!this.state.isLoading && <Display type={this.state.type} articles={this.state.articles} />}
           </main>
           
         );
