@@ -3,7 +3,7 @@ import Card from "../Card/Card";
 import './Display.css'
 
 
-function Display ({ type , articles }) {
+function Display ({ type , articles, getCurrentStory }) {
 
     
       const buildDisplayArray = (arr) => {
@@ -14,6 +14,7 @@ function Display ({ type , articles }) {
                   byline={art.byline}
                   key={(arr.length ++ )}
                   section={art.section}
+                  getCurrentStory={getCurrentStory}
                   />
               )
           })
@@ -29,12 +30,11 @@ function Display ({ type , articles }) {
      }
      const displayArticles = checkType(articles)
   
-
     
         return (
-            <>
-            {displayArticles.length ? displayArticles : <p>Sorry, no top stories in this section.</p>}
-            </>
+            <section>
+            {displayArticles.length ? displayArticles : <p>Sorry, there are no top stories in this section.</p>}
+            </section>
         )
     
 }

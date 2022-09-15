@@ -1,10 +1,13 @@
 import React from "react";
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 function Header({ getType }) {
     return(
         <>
+            <Link to={'/'}>
             <h1>NYT News Reader</h1>
+            </Link>
             <form>
                 <label>Sections:</label>
                 <select onChangeCapture={event => {
