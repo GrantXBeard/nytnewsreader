@@ -20,7 +20,6 @@ function Display ({ type , articles }) {
       }
 
       const checkType = (arr) => {
-        console.log(type)
         if (type === 'home') {
          return buildDisplayArray(arr)
         } else {

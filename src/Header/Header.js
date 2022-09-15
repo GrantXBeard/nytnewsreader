@@ -6,11 +6,12 @@ function Header({ getType }) {
         <>
             <h1>NYT News Reader</h1>
             <form>
+                <label>Sections:</label>
                 <select onChangeCapture={event => {
                     event.preventDefault()
                     getType(event.target.value)}
                 }>
-                    <option defaultValue='home'>Home</option>
+                    <option value='home'>Home</option>
                     <option value='arts'>Arts</option>
                     <option value='automobiles'>Automobiles</option>
                     <option value='books'>Books</option>
@@ -37,7 +38,6 @@ function Header({ getType }) {
                     <option value='us'>US</option>
                     <option value='world'>Wolrd</option>
                 </select>
-                <button>Go!</button>
                 
             </form>
         </>
