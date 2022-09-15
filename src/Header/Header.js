@@ -2,19 +2,17 @@ import React from "react";
 import './Header.css'
 import { Link } from 'react-router-dom'
 
-function Header({ getType }) {
+function Header({resetType, getType }) {
     return(
         <>
             <Link to={'/'}>
-            <h1>NYT News Reader</h1>
+            <h1 onClick={event => resetType()}>NYT News Reader</h1>
             </Link>
             <form>
                 <label>Sections:</label>
-                <select onChangeCapture={event => {
-                    event.preventDefault()
-                    getType(event.target.value)}
+                <select onChangeCapture={event => {getType(event.target.value)}
                 }>
-                    <option value='home'>Home</option>
+                    <option defaultValue='home'>Home</option>
                     <option value='arts'>Arts</option>
                     <option value='automobiles'>Automobiles</option>
                     <option value='books'>Books</option>
