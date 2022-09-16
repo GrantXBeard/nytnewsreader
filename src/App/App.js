@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './App.css';
 import Header from '../Header/Header'
+import Form from '../Form/Form';
 import Display from '../Display/Display';
 import Article from'../Article/Article'
 import getArticles from "../apiCall";
@@ -58,7 +59,8 @@ class App extends Component {
   render() {
     return (
           <main>
-            <Header resetType={this.resetType} getType={this.getType}/>
+            <Header resetType={this.resetType}/>
+            <Form getType={this.getType}/>
             <Routes>
               <Route exact path='/' element={<Display getCurrentStory={this.getCurrentStory} type={this.state.type} articles={this.state.articles} />}> </Route>
               <Route path={`/${this.state.path}`} element={<Article path={this.state.path} currentStory={this.state.currentStory} />}> </Route>
