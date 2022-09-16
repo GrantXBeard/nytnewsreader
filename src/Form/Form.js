@@ -2,7 +2,6 @@ import React from 'react'
 import './Form.css'
 
 function Form({ defaultType, getType }) {
-    console.log(defaultType)
     return(
         <form>
             <select className='medium-select' value={defaultType} onChange={event => {getType(event.target.value)}}>

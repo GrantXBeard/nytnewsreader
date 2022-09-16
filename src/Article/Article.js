@@ -2,7 +2,6 @@ import React from "react";
 import './Article.css';
 
 function Article({path, currentStory}) {
-    console.log(currentStory.multimedia[0].url)
     return(
         <section className="articles-single">
         <h2>{currentStory.title}</h2>
