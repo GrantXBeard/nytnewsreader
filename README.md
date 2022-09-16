@@ -7,16 +7,16 @@ This app is designed to give users a quick glance at the the New York Times curr
 
 Made to emulate a take home technical challenge, the goal was to develope an MVP in a limited time frame while showcasing an understanding of usability practices and standards as well as React JS and Front-End best practices.
 
-##Install
+## Install
 
 1. `git clone` this repo
 2. `cd` into the directory and run `npm i` to install dependencies
 3. run `npm start` to open the development server
 
-##Tech Stack
+## Tech Stack
 
 - React
 - React Router
 - NYT Top Stories API
 
-##Contributers
+## Contributers
