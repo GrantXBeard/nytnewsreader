@@ -32,7 +32,7 @@ function Display ({ type , articles, getCurrentStory }) {
   
     
         return (
-            <section>
+            <section className="articles-display">
             {displayArticles.length ? displayArticles : <p>Sorry, there are no top stories in this section.</p>}
             </section>
         )

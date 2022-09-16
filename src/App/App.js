@@ -63,10 +63,10 @@ class App extends Component {
     console.log(this.state)
     return (
           <main>
-            <section className='top'>
+            <header className='top'>
             <Header resetType={this.resetType}/>
             <Form defaultType={this.state.type} getType={this.getType}/>
-            </section>
+            </header>
             <Routes>
               <Route exact path='/' element={<Display getCurrentStory={this.getCurrentStory} type={this.state.type} articles={this.state.articles} />}> </Route>
               <Route path={`/${this.state.path}`} element={<Article path={this.state.path} currentStory={this.state.currentStory} />}> </Route>

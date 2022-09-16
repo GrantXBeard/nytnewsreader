@@ -5,8 +5,7 @@ function Form({ defaultType, getType }) {
     console.log(defaultType)
     return(
         <form>
-            <label>Sections:</label>
-            <select value={defaultType} onChange={event => {getType(event.target.value)}}>
+            <select className='medium-select' value={defaultType} onChange={event => {getType(event.target.value)}}>
                 <option value='home'>Home</option>
                 <option value='arts'>Arts</option>
                 <option value='automobiles'>Automobiles</option>

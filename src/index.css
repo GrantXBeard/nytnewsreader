@@ -1,9 +1,10 @@
 body {
   margin: 0;
-  font-family: 'Merriweather', serif;
-  font-weight: 700;
+  font-family: 'IBM Plex Serif', serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #222222;
 }
 
 /* code {

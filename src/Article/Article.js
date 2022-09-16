@@ -4,14 +4,14 @@ import './Article.css';
 function Article({path, currentStory}) {
     console.log(currentStory.multimedia[0].url)
     return(
-        <section>
+        <section className="articles-single">
         <h2>{currentStory.title}</h2>
         <p>{currentStory.byline}</p>
-        <p>{currentStory.section}</p>
+        <p>story from the <b>{currentStory.section}</b> section</p>
         <p>{currentStory.abstract}</p>
-        <p>{currentStory.url}</p>
+        <a href={currentStory.url}>View full article</a>
         <img src={currentStory.multimedia[0].url}/>
-        <p>{currentStory.multimedia[0].copyright}</p>
+        <p>ⓒ{currentStory.multimedia[0].copyright}</p>
         </section>
     )
 }
