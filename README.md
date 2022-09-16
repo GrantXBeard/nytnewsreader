@@ -22,3 +22,5 @@ Made to emulate a take home technical challenge, the goal was to develope an MVP
 - NYT Top Stories API
 
 ## Contributers
+
+- [Grant Beard](https://github.com/GrantXBeard)
