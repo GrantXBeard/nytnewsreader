@@ -1,0 +1,25 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 2em;
+  background-color: #f2f2f2;
+}
+
+section {
+    width: 100%;
+    max-width: 35em;
+    margin: 0 auto;
+    padding: 2em 0;
+}
+
+a {
+  text-decoration: none;
+  color: #222222;
+}
+
+
+h1 {
+  margin: 0;
+  font-weight: 200;
+}
