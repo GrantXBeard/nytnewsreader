@@ -6,7 +6,7 @@ function Header({resetType}) {
     return(
         <>
             <Link to={'/'}>
-                <h1 onClick={event => resetType()}>NYT News Reader</h1>
+                <h1 onClick={resetType}>NYT News Reader</h1>
             </Link>
         </>
     )

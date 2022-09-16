@@ -16,7 +16,7 @@ class App extends Component {
             isLoading: false,
             type: 'home',
             path: null,
-            currentStory: null
+            currentStory: null,
           }
   }
 
@@ -25,14 +25,17 @@ class App extends Component {
   }
 
   resetType = () => {
-    this.setState({ type: 'home' })
+    this.setState({ 
+      type: 'home'
+    })
   }
 
   getCurrentStory = (title) => {
     const current = this.state.articles.find(art => art.title === title)
     this.setState({
       currentStory: current,
-      path: current.title
+      path: current.title,
+      showArticle: true
     })
   }
 
@@ -57,10 +60,13 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
           <main>
+            <section className='top'>
             <Header resetType={this.resetType}/>
-            <Form getType={this.getType}/>
+            <Form defaultType={this.state.type} getType={this.getType}/>
+            </section>
             <Routes>
               <Route exact path='/' element={<Display getCurrentStory={this.getCurrentStory} type={this.state.type} articles={this.state.articles} />}> </Route>
               <Route path={`/${this.state.path}`} element={<Article path={this.state.path} currentStory={this.state.currentStory} />}> </Route>

@@ -1,12 +1,13 @@
 import React from 'react'
 import './Form.css'
 
-function Form({ getType }) {
+function Form({ defaultType, getType }) {
+    console.log(defaultType)
     return(
         <form>
             <label>Sections:</label>
-            <select onChangeCapture={event => {getType(event.target.value)}}>
-                <option defaultValue='home'>Home</option>
+            <select value={defaultType} onChange={event => {getType(event.target.value)}}>
+                <option value='home'>Home</option>
                 <option value='arts'>Arts</option>
                 <option value='automobiles'>Automobiles</option>
                 <option value='books'>Books</option>
@@ -34,6 +35,7 @@ function Form({ getType }) {
                 <option value='world'>Wolrd</option>
             </select>  
         </form>
+
     )
 }
 
