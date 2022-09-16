@@ -7,6 +7,8 @@ This app is designed to give users a quick glance at the the New York Times curr
 
 Made to emulate a take home technical challenge, the goal was to develope an MVP in a limited time frame while showcasing an understanding of usability practices and standards as well as React JS and Front-End best practices.
 
+![NYTNewsReader gif](https://media3.giphy.com/media/MB6vr1CdEX92Bo7DeM/giphy.gif?cid=790b7611a3cf516c3a5f37a4ac0f6cb083ebf7466feded94&rid=giphy.gif&ct=g)
+
 ## Install
 
 1. `git clone` this repo
